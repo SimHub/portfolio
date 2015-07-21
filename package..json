@@ -1,0 +1,8 @@
+{
+  "name": "goodweather",
+
+
+  "scripts": {
+    "minify": "minify ./js/goodweather.js ./js/goodweather.min.js"
+  }
+}

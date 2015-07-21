@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Portfolio">
+    <meta name="keywords"
+          content="Portfolio,developer,webdesign,development">
+    <meta name="author" content="Simon Lackmann">
+    <meta name="HandheldFriendly" content="TRUE">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+    <title>Portfolio</title>
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" rel="stylesheet"/>
+
+    <link rel="stylesheet" href="css/styles.css"/>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.12.3/components/flag.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.12.3/components/card.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.12.3/components/button.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/components/image.min.css"/>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.12.3/components/divider.min.css"/>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.12.3/components/dropdown.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.12.3/components/icon.min.css"/>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.12.3/components/transition.min.css"/>
+
+
+    <style>
+        .text-center .hover.panel {
+            background : #e3e3e3;
+        }
+
+        .flip-cursor {
+            cursor : alias;
+        }
+
+        .aligncenter {
+            text-align : center
+        }
+
+        .header {
+            background : #ececec;
+        }
+
+        .realnutrition_img_card {
+            background      : url("img/video-poster/real_nutrition_md.png") center no-repeat;
+            background-size : 100%;
+        }
+
+        .cards a {
+            text-decoration : none;
+        }
+
+        .description {
+            height  : 0;
+            opacity : 0;
+        }
+
+        .description_minus {
+            opacity   : 0;
+            cursor    : pointer;
+            font-size : 2em;
+            right     : 4%;
+            position  : absolute;
+        }
+
+        .description_plus {
+            /*position  : absolute;*/
+            cursor      : pointer;
+            font-size   : 2.7em;
+            margin-left : 5%
+        }
+
+        .description_plus:hover, .description_plus_flip:hover {
+            color : #9c4835;
+            /*font-size  : 4em;*/
+        }
+
+        /* language */
+        p.en {
+            display : none;
+        }
+
+        #t-js-intro {
+            box-sizing  : border-box;
+            word-break  : break-all;
+            text-shadow : 1px 1px 0 black;
+            color       : #efefef;
+        }
+
+        div.hover.panel {
+            background : none;
+        }
+
+        .bg_wrapper {
+            background              : url("img/bg/city2.jpg") no-repeat center center fixed;
+            -webkit-background-size : cover;
+            -moz-background-size    : cover;
+            -o-background-size      : cover;
+            background-size         : cover;
+            /*height: 50%;*/
+        }
+
+        .simhub_img {
+            box-shadow : 2px 3px 10px rgb(1, 33, 54);
+
+        }
+
+        .fa-angle-down:before {
+            content : "\f107";
+            color   : white;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="pre-loader"></div>
+
+
+<nav class="navbar navbar-trans navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapsible">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a data-lang="lang" class="navbar-brand text-danger" href="#">
+            </a>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-collapsible">
+            <ul data-lng='lng' class="nav navbar-nav navbar-left lng">
+                <li><img src="img/simon_avatar_o.png" class="ui tiny  centered image simhub_img" alt="pic"/>
+                </li>
+                <li>
+                    <a class="lang" href="#start">
+                        start
+                    </a>
+                </li>
+
+                <li>
+                    <a class="lang" href="#portfolio">
+                        portfolio </a>
+                </li>
+                <li>
+                    <a class="lang" href="#about">
+                        <p class="de"><i class="fa fa-globe"></i>
+                            über mich</p>
+
+                        <p class="en"><i class="fa fa-globe"></i>
+                            about me</p>
+                    </a>
+                </li>
+                <li>
+                    <a class="lang" id="skills_button" href="#skills">
+                        skills </a>
+                </li>
+
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right chlng">
+                <li><a id="changelang_en" href="#"><img width="20" src="img/flag/UnitedKingdom.png" alt="en"/></a>
+                </li>
+                <li><a id="changelang_de" href="#"><img width="20" src="img/flag/Germany.png" alt="de"/></a></li>
+
+                <li>
+                    <a href="#mail" data-toggle="modal" data-target="#myModal">
+                        <i class="fa fa-heart-o fa-lg"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<a class="scroll-up" href="#start">
+    <ul style="list-style: none">
+        <li><i class="fa fa-angle-up"></i></li>
+        <li>UP</li>
+    </ul>
+</a>
+
+
+<section class="container-fluid bg_wrapper" id="start">
+
+    <!---START--->
+    <div class="v-center">
+
+
+        <h1 class="text-center">
+            <!--<img src="img/simon_avatar_o.png" class="ui small  centered image simhub_img" alt="pic" />-->
+        </h1>
+
+        <h3>
+            <div style="text-align: center" id="t-js-intro"></div>
+        </h3>
+
+
+        <h2 class="text-center lato animate slideInDown lang" style="text-shadow: 1px 1px 1px black;color: white">
+            Simon Lackmann
+
+        </h2>
+
+        <p class="text-center">
+            <br>
+            <!--<a href="#" class="btn btn-danger btn-lg btn-huge lato lang" data-toggle="modal" data-target="#myModal">GetFree Membership</a>-->
+        </p>
+    </div>
+
+    <br/><br/>
+
+    <a href="#portfolio">
+        <div class="scroll-down  animated">
+        <span>
+                <i class="fa fa-angle-down fa-2x"></i>
+            </span>
+        </div>
+    </a>
+</section>
+
+<!--Particle-js-wrapper-->
+<!--<div id="particles-js" class="bg_wrapper" >-->
+<!--</div>-->
+<!--End-Particle-js-wrapper-->
+
+
+<!----- PORTFOLIO -------->
+<section class="container-fluid" id="portfolio">
+
+    <div class="container ">
+
+        <div style="text-align: center"><h2>PORTFOLIO</h2></div>
+        <br/><br/>
+
+
+        <!-- Real nutrition -->
+        <div class="col-sm-4 card aligncenter">
+            <div class="content">
+
+                <div class="flip_nutrition">
+
+                    <div class="header">
+
+                        <div class="panel-heading boxheaderColor-green">
+                            <i class="fa fa-html5"></i>
+                            Real nutrition
+                        </div>
+                        <div>
+                            <!--<br/><br/><br/><br/><br/><br/><br/>-->
+                        </div>
+                    </div>
+                    <hr/>
+
+                    <p class="lang">
+
+                    <p class="de"><i class="fa fa-globe"></i> Diese Website ist für Menschen gedacht, die eine
+                        Alternative
+                        suchen zum heutigen
+                        industriellen Convenience-Food ...</p>
+
+                    <p class="en"><i class="fa fa-globe"></i> This site is intended for people who are looking for an
+                        alternative to today's industrial convenience food ...</p>
+
+                    </p>
+
+                    <hr/>
+
+                    <i class="fa fa-info-circle description_plus_flip" style="font-size: 2.7em;"></i>
+                    <i class="fa fa-times description_minus"></i>
+
+                </div>
+                <!--end flip-->
+
+            </div>
+
+
+        </div>
+
+        <!-- PHPBASE64ENCODER -->
+        <div class="col-sm-4 card aligncenter ">
+            <div class="content">
+
+                <div class="flip_base_64">
+
+                    <div class="header">
+                        <div class="panel-heading boxheaderColor-red">
+                            <i class="fa fa-cogs"></i>
+                            Base64enconder
+                        </div>
+                    </div>
+                    <hr/>
+
+                    <p class="lang">
+
+                    <p class="de"><i class="fa fa-globe"></i> PHP Base64 Image Encoder Template. Konvertiere dein Bild in
+                        ein
+                        base64 string Format
+                        für CSS, XHTML, XML ... Projekte</p>
+
+                    <p class="en"><i class="fa fa-globe"></i> PHP Base64 Image Encoder Template . Convert your image into a
+                        base64 string format for CSS , XHTML , XML ... Projects</p>
+                    </p>
+                    <hr/>
+
+                    <i class="fa fa-info-circle description_plus_flip" style="font-size: 2.7em;"></i>
+                    <i class="fa fa-times description_minus"></i>
+
+                    <div class="description">
+                        <p>
+                        <ul class="tech-list">
+                            <li class="tech-info">PHP</li>
+                            <li class="tech-info">jQuery</li>
+                            <li class="tech-info">Css</li>
+                            <li class="tech-info">Html5</li>
+                        </ul>
+                        <hr/>
+                        <h2>
+                            <a href="https://github.com/SimHub/phpbase64encoder">
+                                <small>
+                                    <i class="fa fa-github"></i>
+                                    github
+                                </small>
+                            </a>
+                        </h2>
+                        <hr/>
+                        <a class="mobile_no_vid" href="#base64enconder_vid">VIDEO</a>
+                        <hr>
+
+                        <a href="http://simonlackmann.ddns.net/goodweather/">DEMO</a>
+                        </p>
+                    </div>
+
+                </div><!--End flip-->
+            </div>
+        </div>
+
+        <!--Good Weather App FLIP test-->
+        <div class="col-sm-4 card aligncenter ">
+            <div class="content ">
+
+                <div class="flip_weather" style="background: white">
+
+                    <div class="header">
+                        <div class="panel-heading boxheaderColor-blue">
+                            <i class="fa fa-sun-o"></i>
+                            GoodWeather App
+                        </div>
+                    </div>
+                    <hr/>
+
+                    <p class="lang">
+
+                    <p class="de"><i class="fa fa-globe"></i> Open Weather Map Api <br/>
+                        Implementierung der OpenWeatherMap api
+
+                    </p>
+
+                    <p class="en"><i class="fa fa-globe"></i> Open Weather Map Api <br/>
+                        implementation of OpenWeatherMap api
+                    </p>
+
+                    </p>
+                    <hr/>
+
+                    <i class="fa fa-info-circle description_plus_flip" style="font-size: 2.7em;"></i>
+                    <i class="fa fa-times description_minus"></i>
+
+                </div>
+                <!--end flip-->
+
+            </div>
+        </div>
+
+        <!--Drawing App-->
+
+            <!-- JUST FLIP IT JS -->
+            <div class="col-sm-6 card aligncenter">
+                <div class="content">
+
+                    <div class="flip_just_flip_it">
+
+                        <div class="header">
+                            <div class="panel-heading">
+                                <i class="fa fa-plug"></i>
+                                justFlip.js
+                            </div>
+                        </div>
+                        <hr/>
+
+                        <p class="lang">
+
+                        <p class="de"><i class="fa fa-globe"></i> justFlipIt ist ein jQuery plugin , mit dem Sie CSS3
+                            basierend Flip Animationen auf
+                            alle DOM-Elemente implementieren können.</p>
+
+                        <p class="en"><i class="fa fa-globe"></i> justFlipIt is a lightweight jQuery plugin that allows you
+                            to
+                            implement
+                            CSS3 based flip animations on all DOM elements .</p>
+
+                        </p>
+
+                        <hr/>
+
+                        <i class="fa fa-info-circle description_plus_flip" style="font-size: 2.7em;"></i>
+                        <i class="fa fa-times description_minus"></i>
+
+                    </div>
+                    <!--End flip-->
+                </div>
+
+            </div>
+
+            <!-- NODE CHAT-->
+            <div class="col-sm-6 card aligncenter">
+                <div class="content">
+
+                    <div class="flip_node_js_chat">
+
+                        <div class="header">
+                            <div class="panel-heading boxheaderColor-blue">
+
+                                <i class="fa fa-comments-o"></i>
+                                Node.js Chat App
+                            </div>
+                        </div>
+                        <hr/>
+
+                        <p class="lang">
+
+                        <p class="de"><i class="fa fa-globe"></i> einfachen Chat-Anwendung geschrieben in node.js</p>
+
+                        <p class="en"><i class="fa fa-globe"></i> simple chat application written in Node.js </p>
+                        </p>
+                        <hr>
+
+                        <i class="fa fa-info-circle description_plus_flip" style="font-size: 2.7em;"></i>
+                        <i class="fa fa-times description_minus"></i>
+
+
+                    </div>
+                    <!--End flip-->
+
+                </div>
+            </div>
+
+        </div>
+
+</section>
+
+
+<!----- VIDEO -------->
+
+<!---node chat-->
+<section class="container-fluid mobile_no_vid ">
+
+    <!--    <div class="container v-center ">-->
+    <!---  Simple node chat macbook-->
+    <div style="margin-left: 10%;"><i class="fa fa-comments-o"></i> Simple node chat</div>
+    <br/>
+
+    <div class="col-sm-4 text-center">
+        <div class="row row_MacBook">
+            <img class="MacBook" src="img/video-poster/MacBook.png" alt="MacBook"/>
+            <video id="node-chat-vid" width="460" height="290" controls="">
+                <source src="video/nodejs/node_chat_desktop.mp4" type="video/mp4">
+                <!--                    <source src="video/nodejs/simple_node_chat.ogv" type="video/ogv">-->
+            </video>
+
+        </div>
+    </div>
+
+
+    <!--    </div>-->
+
+    <!--    <div class="container v-center v-center-iPhone">-->
+
+    <!---  Simple node chat iphone-->
+    <div class="col-sm-1"></div>
+    <div class="col-sm-1 text-center">
+        <div class="row row_iPhone">
+            <img class="iPhone" src="img/video-poster/iPhone_weiss_shadow.png" alt="iPhone"/>
+            <video id="node-chat-vid_iphone" width="130" height="230" controls="">
+                <source src="video/nodejs/node_chat_iphone.mp4" type="video/mp4">
+                <!--                    <source src="video/nodejs/simple_node_chat.ogv" type="video/ogv">-->
+            </video>
+        </div>
+    </div>
+
+    <!--    </div>-->
+</section>
+
+
+<!--base64encoder-->
+<section class="container-fluid mobile_no_vid  ">
+
+    <div class="container v-center ">
+
+        <!---  Base64encoder-->
+        <div style="margin-left: 10%;"><i class="fa fa-cogs"></i> base64enconder</div>
+        <br/>
+
+        <div class="col-sm-4 text-center">
+            <div class="row row_MacBook">
+                <img class="MacBook" src="img/video-poster/MacBook.png" alt="MacBook"/>
+                <video id="base64enconder_vid" width="460" height="290" controls="">
+                    <source src="video/base64encoder/base64encoder.mp4" type="video/mp4">
+                    <!--                    <source src="video/base64encoder/base64encoder.ogv" type="video/ogv">-->
+                </video>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!--realnutrition-->
+<section class="container-fluid mobile_no_vid ">
+
+    <!--    <div class="container v-center ">-->
+    <!---  realnutrition macbook-->
+    <div style="margin-left: 10%;"><i class="fa fa-html5"></i> Real Nutrition</div>
+    <br/>
+
+    <div class="col-sm-4 text-center">
+        <div class="row row_MacBook">
+            <img class="MacBook" src="img/video-poster/MacBook.png" alt="MacBook"/>
+            <video id="realnutrition" width="460" height="290" controls="iPhone">
+                <source src="video/realnutrition/realnutrition_frontend.mp4" type="video/mp4">
+                <!--                    <source src="video/nodejs/simple_node_chat.ogv" type="video/ogv">-->
+            </video>
+        </div>
+    </div>
+
+
+    <!--    </div>-->
+
+    <!--    <div class="container v-center v-center-iPhone">-->
+
+    <!---  realnutrition iphone-->
+    <div class="col-sm-1"></div>
+    <div class="col-sm-1 text-center">
+        <div class="row row_iPhone">
+            <img class="iPhone" src="img/video-poster/iPhone_weiss_shadow.png" alt=""/>
+            <video id="realnutrition_iphone" width="130" height="230" controls="">
+                <source src="video/realnutrition/realnutrition_iphone.mp4" type="video/mp4">
+                <!--                    <source src="video/nodejs/simple_node_chat.ogv" type="video/ogv">-->
+            </video>
+        </div>
+    </div>
+
+    <!--    </div>-->
+
+</section>
+
+
+<section class="container-fluid  " id="about">
+    <div class="container v-center">
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-md-6">
+                <h1 class="text-center" id="scroll_to_about">
+                    <i class="fa fa-info-circle"></i>
+
+                    <p class="de">über mich</p>
+
+                    <p class="en">about me</p>
+
+                </h1>
+            </div>
+        </div>
+        <br/><br/>
+
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <address class="col-sm-6 ">
+
+                <p class="text-left">
+
+                <p class="de"><i class="fa fa-globe"></i> MEIN NAME IST SIMON LACKMANN <br>
+                    Geboren am 09.04.1974 <br/>
+                    Wohnhaft in Oberhausen <br/>
+                    Ich liebe es neues zu lernen. <br/>
+                    Deswegen ist das Internet Universum ein Ort an dem ich mich wohl fühle. <br/>
+                    ich habe im März 2015 einen Abschluss als Webdesigner & Developer gemacht. <br/>
+                    September 2013 - März 2015: Studium, Webdesign & Development, SAE Institute Bochum <br/>
+                    Abschluss: Diploma in Webdesign & Development <br/>
+                    Seit dem träume ich schon in verschlüsselter codierung
+                </p>
+
+                <p class="en"><i class="fa fa-globe"></i> MY NAME IS SIMON LACKMANN<br/>
+                    Born on 09.04.1974<br/>
+                    Resident at Oberhausen<br/>
+                    I love to learn new things.<br/>
+                    That's why the Internet universe is a place where I feel comfortable.<br/>
+                    I took a degree as a web designer & Developer in March 2015.<br/>
+                    September 2013 - June 2015: study , Web Design & Development , SAE Institute Bochum<br/>
+                    Degree: Diploma in Web Design & Development<br/>
+                    Since I'm dreaming already in encrypted coding</p>
+            </address>
+        </div>
+
+
+    </div>
+    <br/>
+
+
+</section>
+
+<section class="container-fluid desktop_no_elem"></section>
+
+<section class="container-fluid  " id="skills">
+    <!---->
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-md-6">
+            <h3>
+                <div>
+                    <small><i class="fa fa-cogs"></i></small>
+                    Skills
+                </div>
+            </h3>
+        </div>
+    </div>
+
+
+    <div class="col-sm-4"></div>
+    <div class="col-md-6">
+
+        <!--<div class="badge">javascript</div>-->
+        <div class="skill-javascript"></div>
+        <!--<br/>-->
+        <!--<div class="badge">php</div>-->
+        <div class="skill-php"></div>
+        <!--<br/>-->
+        <!--<div class="badge">nodejs</div>-->
+        <div class="skill-nodejs"></div>
+
+
+        <div class="skill-angular"></div>
+
+
+    </div>
+</section>
+
+
+<section style="clear: both" class="container-fluid" id="mail">
+    <div class="container v-center">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">Make Contact</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <address class="col-sm-12 text-center">
+
+                <div>Email me <i class="fa fa-smile-o"></i></div>
+                <br>
+                <i class="fa fa-envelope-o"></i>
+                <a href="mailto:simon.lackmann@gmail.com">simon.lackmann@gmail.com</a>
+            </address>
+        </div>
+        <br/><br/>
+
+
+        <div class="row ">
+
+            <div class="col-sm-12">
+                <div class="col-sm-12  text-center">
+                    <a href="https://github.com/SimHub">
+                        <i class="fa fa-github fa-4x" style="font-size:2em;margin-left: 2%"></i>
+                    </a>
+                    <a href="https://plus.google.com/106991145452385915792/about">
+                        <i class="fa fa-google-plus fa-4x" style="font-size:2em;margin-left: 2%"></i>
+                    </a>
+                    <a href="https://twitter.com/sim_hub">
+                        <i class="fa fa-twitter fa-4x" style="font-size:2em;margin-left: 2%"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="container-fluid" id="section7">
+
+    <div class="row">
+        <div>&copy; 2015 Simon Lackmann</div>
+    </div>
+</section>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.12.3/semantic.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.12.3/components/dropdown.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.12.3/components/transition.min.js"></script>
+
+<script src="js/justFlipIt.js"></script>
+<script src="js/t.min.js"></script>
+<link rel="stylesheet" href="mejs/mediaelementplayer.min.css"/>
+<script src="mejs/mediaelement-and-player.min.js"></script>
+<script src="js/skills.js"></script>
+<script src="js/scripts.js"></script>
+
+
+</body>
+</html>
