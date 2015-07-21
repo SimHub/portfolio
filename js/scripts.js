@@ -1,23 +1,6 @@
-/* activate scrollspy menu */
-
-/*description*/
-//$('.description_plus').click(function () {
-//    $(this).next().next().animate({height:'100%',opacity:1},1000);
-//});
-//$('.description_minus').click(function () {
-//    $(this).next().animate({height:'0',opacity:0},1000);
-//});
-
-/*Skills js*/
-
-//$(function() {
-//    var eTop = $('section#skills').offset().top; //get the offset top of the element
-//var eTopH = $('section#skills')   .offsetTop; //get the offset top of the element
-
-//log(eTop - $(window).scrollTop()); //position of the ele w.r.t window
-//var log =(eTop - $(window).scrollTop());
-
-/*window scroll activate skill effect */
+   /**===================================/
+  / window scroll activate skill effect /
+ /====================================*/
 $(window).scroll(function () {
     //when window is scrolled
     var navHeight = $('.navbar-collapse.collapse').height();//nav height
@@ -26,7 +9,10 @@ $(window).scroll(function () {
 
     if (log >= eTopH) {
 
-        // skills.js plugin
+           /**=================/
+          / skills.js plugin  /
+         / by simon lackmann /
+        / =================*/
         $('.skill-javascript').skills({
             //set badge name
             BadgeName: "javascript",
@@ -127,41 +113,17 @@ $(window).scroll(function () {
 
 });
 
-
-//$('#changelang_de').click(function (e) {
-//    e.preventDefault();
-//    $('p.en').hide('slow');
-//    $('p.de').show('slow');
-//
-//});
-
-
-$('.description_plus').click(function () {
-    $(this).next().next().animate({height: '100%', opacity: 1}, 1000);
-    $(this).animate({opacity: 0}, 1000);
-    $(this).next().animate({opacity: 1}, 1000);
-
-
-});
-
-$('.description_minus').click(function () {
-    $(this).animate({opacity: 0}, 1000);
-
-    $(this).next().animate({height: '0', opacity: 0}, 1000);
-    $(this).prev().animate({opacity: 1}, 1000);
-
-});
-
-//$('.description_button').mouseleave(function () {
-//    $(this).next().animate({height:'0',opacity:0},1000);
-//});
-
+        /**======/
+       / scrospy/
+      /=======*/
 $('body').scrollspy({
     target: '#navbar-collapsible',
     offset: 52
 });
 
-/* smooth scrolling sections */
+        /**=========================/
+       / smooth scrolling sections /
+      /==========================*/
 $('a[href*=#]:not([href=#])').click(function () {
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
         var target = $(this.hash);
@@ -182,8 +144,9 @@ $('a[href*=#]:not([href=#])').click(function () {
 
 
             }
-
-            // activate animations in this section
+               /**===================================/
+              / activate animations in this section  /
+             /====================================*/
             target.find('.animate').delay(1200).addClass("animated");
             setTimeout(function () {
                 target.find('.animated').removeClass("animated");
@@ -195,7 +158,11 @@ $('a[href*=#]:not([href=#])').click(function () {
 });
 
 
-/* justFlipIt */
+
+/**
+ *  justFlipIt
+ *  by simon lackmann
+ *  */
 $('.flip_weather').justFlipIt({
     Click: '.description_plus_flip',
     FrontColor:'none',
@@ -341,7 +308,9 @@ $('.flip_base_64').justFlipIt({
     '</div>'
 });
 
-/*video mediaelementplayer*/
+/**
+ * video mediaelementplayer
+ * */
 $('video').mediaelementplayer({
     success: function (player, node) {
         $('#' + node.id + '-mode').html('mode: ' + player.pluginType);
@@ -350,7 +319,9 @@ $('video').mediaelementplayer({
     translationSelector: true
 });
 
-/* T.JS */
+/**
+ *  T.JS
+ *  */
 $('#t-js-intro').t('Hi! My name is Simon Lackmann and i am a Creative Developer.');
 
 
@@ -361,11 +332,6 @@ $('.dropdown')
     })
 ;
 
-/* set active a */
-//$('li a.changelang').click(function () {
-//    $('li a.changelang').removeClass('active_changelang');
-//    $(this).addClass('active_changelang');
-//});
 
 
 
