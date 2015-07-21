@@ -1,0 +1,13 @@
+{
+  "name": "portfolio",
+
+
+  "scripts": {
+    "minify1": "minify ./js/goodweather.js ./js/goodweather.min.js",
+    "minify2": "minify ./js/justFlipIt.js ./js/justFlipIt.min.js",
+    "minify3": "minify ./js/scripts.js ./js/scripts.min.js",
+    "minify4": "minify ./js/skills.js ./js/skills.min.js",
+    "minify": "npm run minify1 && npm run minify2 && npm run minify3 && npm run minify4"
+
+  }
+}
