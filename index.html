@@ -102,11 +102,12 @@
         }
 
         .bg_wrapper {
-            background              : url("img/bg/city2.jpg") no-repeat center center fixed;
+            background              : url("img/bg/city2.gif") no-repeat center center fixed;
             -webkit-background-size : cover;
             -moz-background-size    : cover;
             -o-background-size      : cover;
             background-size         : cover;
+            /*background-color: #121212;*/
             /*height: 50%;*/
         }
 
@@ -124,6 +125,10 @@
         }
         .card{
             border: none;
+        }
+        .ui.tiny.image, .ui.tiny.images .image, .ui.tiny.images img, .ui.tiny.images svg {
+            width  : 50px;
+            height : 50px;
         }
     </style>
 
@@ -147,8 +152,6 @@
         </div>
         <div class="navbar-collapse collapse" id="navbar-collapsible">
             <ul data-lng='lng' class="nav navbar-nav navbar-left lng">
-                <li><img src="img/simon_avatar_o.png" class="ui tiny  centered image simhub_img" alt="pic"/>
-                </li>
                 <li>
                     <a class="lang" href="#start">
                         start
@@ -205,7 +208,7 @@
 
 
         <h1 class="text-center">
-            <!--<img src="img/simon_avatar_o.png" class="ui small  centered image simhub_img" alt="pic" />-->
+            <img src="img/06.png" style="opacity: 0.8" class="ui small centered image   " alt="pic" />
         </h1>
 
         <h3>
@@ -576,7 +579,9 @@
             <div class="col-sm-2"></div>
             <div class="col-md-6">
                 <h1 class="text-center" id="scroll_to_about">
-                    <i class="fa fa-info-circle"></i>
+                    <img src="img/simon_avatar_o.png" class="ui small circular  centered image simhub_img" alt="pic"/>
+
+                    <!--<i class="fa fa-info-circle"></i>-->
 
                     <p class="de">über mich</p>
 
