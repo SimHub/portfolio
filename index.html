@@ -159,9 +159,16 @@
         --------------------------- */
 
         @keyframes offset {
-            /*60% {*/
-            /*stroke-opacity: 1;*/
-            /*}*/
+            100% {
+                stroke-dashoffset : 0;
+            }
+        }
+        @-webkit-keyframes offset {
+            100% {
+                stroke-dashoffset : 0;
+            }
+        }
+        @-moz-keyframes offset {
             100% {
                 stroke-dashoffset : 0;
             }
@@ -172,8 +179,28 @@
                 fill : #F4F4F4;
             }
         }
+        @-webkit-keyframes fill_cloud {
+            100% {
+                fill : #F4F4F4;
+            }
+        }
+        @-moz-keyframes fill_cloud {
+                100% {
+                    fill : #F4F4F4;
+                }
+            }
 
         @keyframes fill_outer {
+            100% {
+                fill : #6DB4FF;
+            }
+        }
+        @-webkit-keyframes fill_outer {
+            100% {
+                fill : #6DB4FF;
+            }
+        }
+        @-moz-keyframes fill_outer {
             100% {
                 fill : #6DB4FF;
             }
@@ -184,7 +211,16 @@
                 fill : rgb(32, 140, 254);
             }
         }
-
+        @-webkit-keyframes inner_h {
+            100% {
+                fill : rgb(32, 140, 254);
+            }
+        }
+        @-moz-keyframes inner_h {
+            100% {
+                fill : rgb(32, 140, 254);
+            }
+        }
 
         /* --------------------------
           SVG Styles
@@ -194,6 +230,9 @@
             stroke-dasharray  : 810;
             stroke-dashoffset : 810;
             animation         : offset 1s linear forwards alternate;
+            -webkit-animation         : offset 1s linear forwards alternate;
+            -moz-animation         : offset 1s linear forwards alternate;
+
         }
 
         .cloud {
@@ -202,6 +241,8 @@
             stroke-dasharray  : 810;
             stroke-dashoffset : 810;
             animation         : offset 1.5s linear forwards alternate, fill_cloud .8s 1.5s forwards;
+            -webkit-animation         : offset 1.5s linear forwards alternate, fill_cloud .8s 1.5s forwards;
+            -moz-animation         : offset 1.5s linear forwards alternate, fill_cloud .8s 1.5s forwards;
         }
 
         .outer {
@@ -210,6 +251,8 @@
             stroke-dasharray  : 810;
             stroke-dashoffset : 810;
             animation         : offset 1.5s linear forwards alternate, fill_outer .8s 1.8s forwards;
+            -webkit-animation         : offset 1.5s linear forwards alternate, fill_outer .8s 1.8s forwards;
+            -moz-animation         : offset 1.5s linear forwards alternate, fill_outer .8s 1.8s forwards;
         }
 
         .inner_header {
@@ -218,6 +261,8 @@
             stroke-dasharray  : 810;
             stroke-dashoffset : 810;
             animation         : offset 1.5s linear forwards alternate, inner_h .8s 1.8s forwards;
+            -webkit-animation         : offset 1.5s linear forwards alternate, inner_h .8s 1.8s forwards;
+            -moz-animation         : offset 1.5s linear forwards alternate, inner_h .8s 1.8s forwards;
         }
 
 
