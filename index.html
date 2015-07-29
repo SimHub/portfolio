@@ -111,6 +111,7 @@
         }
 
         .bg_wrapper {
+            /*display                 : none;*/
             background              : url("img/bg/city3.jpg") no-repeat center center fixed;
             -webkit-background-size : cover;
             -moz-background-size    : cover;
@@ -120,6 +121,8 @@
             /*background-color        : rgb(32, 140, 254);*/
             /*height: 50%;*/
         }
+
+
 
         .simhub_img {
             box-shadow : 2px 3px 10px rgb(1, 33, 54);
@@ -152,7 +155,7 @@
             margin  : auto;
             display : block;
             width   : 28%;
-            opacity: 0.7;
+            opacity : 0.7;
         }
 
         /* --------------------------
@@ -164,11 +167,13 @@
                 stroke-dashoffset : 0;
             }
         }
+
         @-webkit-keyframes offset {
             100% {
                 stroke-dashoffset : 0;
             }
         }
+
         @-moz-keyframes offset {
             100% {
                 stroke-dashoffset : 0;
@@ -180,27 +185,31 @@
                 fill : #F4F4F4;
             }
         }
+
         @-webkit-keyframes fill_cloud {
             100% {
                 fill : #F4F4F4;
             }
         }
+
         @-moz-keyframes fill_cloud {
-                100% {
-                    fill : #F4F4F4;
-                }
+            100% {
+                fill : #F4F4F4;
             }
+        }
 
         @keyframes fill_outer {
             100% {
                 fill : #6DB4FF;
             }
         }
+
         @-webkit-keyframes fill_outer {
             100% {
                 fill : #6DB4FF;
             }
         }
+
         @-moz-keyframes fill_outer {
             100% {
                 fill : #6DB4FF;
@@ -212,11 +221,13 @@
                 fill : rgb(32, 140, 254);
             }
         }
+
         @-webkit-keyframes inner_h {
             100% {
                 fill : rgb(32, 140, 254);
             }
         }
+
         @-moz-keyframes inner_h {
             100% {
                 fill : rgb(32, 140, 254);
@@ -231,8 +242,8 @@
             stroke-dasharray  : 810;
             stroke-dashoffset : 810;
             animation         : offset 1s linear forwards alternate;
-            -webkit-animation         : offset 1s linear forwards alternate;
-            -moz-animation         : offset 1s linear forwards alternate;
+            -webkit-animation : offset 1s linear forwards alternate;
+            -moz-animation    : offset 1s linear forwards alternate;
 
         }
 
@@ -242,8 +253,8 @@
             stroke-dasharray  : 810;
             stroke-dashoffset : 810;
             animation         : offset 1.5s linear forwards alternate, fill_cloud .8s 1.5s forwards;
-            -webkit-animation         : offset 1.5s linear forwards alternate, fill_cloud .8s 1.5s forwards;
-            -moz-animation         : offset 1.5s linear forwards alternate, fill_cloud .8s 1.5s forwards;
+            -webkit-animation : offset 1.5s linear forwards alternate, fill_cloud .8s 1.5s forwards;
+            -moz-animation    : offset 1.5s linear forwards alternate, fill_cloud .8s 1.5s forwards;
         }
 
         .outer {
@@ -252,8 +263,8 @@
             stroke-dasharray  : 810;
             stroke-dashoffset : 810;
             animation         : offset 1.5s linear forwards alternate, fill_outer .8s 1.8s forwards;
-            -webkit-animation         : offset 1.5s linear forwards alternate, fill_outer .8s 1.8s forwards;
-            -moz-animation         : offset 1.5s linear forwards alternate, fill_outer .8s 1.8s forwards;
+            -webkit-animation : offset 1.5s linear forwards alternate, fill_outer .8s 1.8s forwards;
+            -moz-animation    : offset 1.5s linear forwards alternate, fill_outer .8s 1.8s forwards;
         }
 
         .inner_header {
@@ -262,10 +273,9 @@
             stroke-dasharray  : 810;
             stroke-dashoffset : 810;
             animation         : offset 1.5s linear forwards alternate, inner_h .8s 1.8s forwards;
-            -webkit-animation         : offset 1.5s linear forwards alternate, inner_h .8s 1.8s forwards;
-            -moz-animation         : offset 1.5s linear forwards alternate, inner_h .8s 1.8s forwards;
+            -webkit-animation : offset 1.5s linear forwards alternate, inner_h .8s 1.8s forwards;
+            -moz-animation    : offset 1.5s linear forwards alternate, inner_h .8s 1.8s forwards;
         }
-
 
 
     </style>
@@ -339,8 +349,8 @@
 </a>
 
 
-<section class="container-fluid " id="start">
-
+<section class="container-fluid bg_wrapper " id="start">
+    <!--<div class="bg_wrapper">-->
     <!---START--->
     <div class="v-center">
 
@@ -376,12 +386,6 @@
             </svg>
 
 
-
-
-
-
-
-
             <!--<img src="img/06.png" style="opacity: 0.8" class="ui small centered image   " alt="pic"/>-->
         </h1>
 
@@ -410,6 +414,9 @@
             </span>
         </div>
     </a>
+
+    <!--</div>-->
+    <!--End bg_wrapper-->
 </section>
 
 <!--Particle-js-wrapper-->
@@ -916,23 +923,32 @@
 
 <script>
     $(function () {
-        var trigger = false;
+        var trigger = [];
 
         $(".cloud").on("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd",
             function (e) {
-                // do something here
+                var i = 1;
 
                 $(this).off(e);
 
-                trigger = true;
+                trigger.push(i);
+                console.log(trigger.length);
+//                $('#start.bg_wrapper').css({'opacity':0});
 
-                $('#start').addClass('bg_wrapper');
-                console.log('complete');
+                if (trigger.length >= 2) {
+//                    $('#start').addClass('bg_wrapper_show');
 
-            });
+                    console.log('complete');
 
+                }
 
-        console.log(trigger);
+            }
+        )
+        ;
+
+//        if()
+//        $('#start').addClass('bg_wrapper_show');
+//        console.log('complete');
     });
 
 </script>
