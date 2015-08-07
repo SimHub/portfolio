@@ -267,7 +267,7 @@ background: #000000;
     color: #ffffff;
     letter-spacing:1px;
     text-align: center;
-    text-shadow: 1px 1px 1px black;
+    /*text-shadow: 1px 1px 1px black;*/
 }
 
 .navbar-trans .form-control:focus {
