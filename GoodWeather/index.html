@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="GoodWeather">
+    <meta name="keywords"
+          content="GoodWeather,weather,app,openweathermap api">
+    <meta name="author" content="Simon Lackmann">
+    <meta name="HandheldFriendly" content="TRUE">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <title>GoodWeather</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css"/>
+
+    <style>
+        .wrapper{
+            margin: 10% auto;width: 100%;
+        }
+        @media (min-width:768px) {
+        .wrapper{
+            margin: 10% auto;width: 400px;
+        }
+        }
+    </style>
+</head>
+<body>
+<a href="../index.html" class="waves-effect waves-light btn">Home</a>
+
+
+<div class="wrapper" >
+        <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+                <span class="card-title">GoodWeather</span>
+
+                <p>
+
+                <div class="weather"></div></p>
+            </div>
+        </div>
+
+    </div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="../js/goodweather.min.js"></script>
+<script>
+
+
+    $('.weather').goodweather({search: true});
+
+</script>
+</body>
+</html>
