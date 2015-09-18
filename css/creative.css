@@ -122,6 +122,18 @@ aside {
     background-color: transparent;
 }
 
+/*==== Img ANIMATION======*/
+
+.demo_img{
+    display: none;
+}
+.my_handy__cover{
+    display: none;
+}
+/*======= END IMG ANIMATION ==========*/
+
+
+
 @media(min-width:768px) {
     .navbar-default {
         border-color: rgba(255,255,255,.3);
@@ -180,7 +192,7 @@ header {
     min-height: auto;
     text-align: center;
     color: #fff;
-    background-image: url(../img/header_10.jpg);
+    background-image: url(../img/header_10_back.jpg);
     background-position: center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -197,10 +209,17 @@ header .header-content {
 }
 
 header .header-content .header-content-inner h1 {
-    margin-top: 0;
-    margin-bottom: 0;
+margin: 0 auto;
     text-transform: uppercase;
     font-weight: 700;
+    /*position: absolute;*/
+    /*top: -48%;*/
+}
+
+header .header-content .header-content-inner .my_header_box
+{
+    position : relative  ;
+    width    : 100%;
 }
 
 header .header-content .header-content-inner hr {
@@ -252,6 +271,8 @@ header .header-content .header-content-inner p {
 }
 
 @media(min-width:992px) {
+
+
     .service-box {
         margin: 20px auto 0;
     }
@@ -312,6 +333,34 @@ header .header-content .header-content-inner p {
 }
 
 @media(min-width:768px) {
+
+    .demo__img {
+        overflow: hidden;
+        position: absolute;
+        left: 15%;
+        top: 0;
+        width: 60.6rem  ;
+        height: 49rem;
+    }
+    .demo__img:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("../img/header_10_front_2.png");
+        background-size: cover;
+    }
+
+    .my_handy__cover{
+        display: block;
+        position: absolute;
+        left: 30%;
+        bottom: 11em;
+        width: 25em;
+    }
+
     .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-category {
         font-size: 16px;
     }
