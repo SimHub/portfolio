@@ -336,7 +336,7 @@ header .header-content .header-content-inner p {
     .demo__img {
         overflow: hidden;
         position: absolute;
-        left: 0%;
+        left: 100px;
         top: 0;
         width: 60.6rem  ;
         height: 49rem;
