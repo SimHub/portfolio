@@ -12,50 +12,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <title>GoodWeather</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css"/>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css"/>-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.7/semantic.min.css">
     <style>
-        .wrapper{
-            margin: 0 auto;width: 100%;
+        .wrapper {
+            text-align : center;
+            margin     : 0 auto;
+            width      : 100%;
         }
-        @media (min-width:768px) {
-        .wrapper{
-            margin: 0 auto;width: 400px;
-        }
+
+        @media (min-width : 768px) {
+            .wrapper {
+                margin : 0 auto;
+                width  : 800px;
+            }
         }
     </style>
 </head>
 <body>
+<br>
 <a href="../index.html" class="waves-effect waves-light btn">Home</a>
 
 
-<div class="wrapper" >
-    <h2 class="card-title">GoodWeather</h2>
-
-    <div class="card blue-grey darken-1">
-        <div class="card-content white-text">
-            <div class="card-title">Current Weather</div>
-            <div class="weatherCurrent"></div>
-
+<div class="ui card">
+    <div class="content">
+        <div class="right floated meta"></div>
+        <img class="ui avatar image" > Good Weather
+    </div>
+    <div class="image">
+        <img class="ui wireframe image my_activator">
+    </div>
+    <div class="content">
+    <span class="right floated">
+    </span>
+        <p class="my_weather"></p>
+    </div>
+    <div class="extra content">
+        <div class="ui large transparent left icon input">
+            <p id="my_forecast"></p>
         </div>
     </div>
-    <div class="card blue-grey darken-1">
-        <div class="card-content white-text">
-            <div class="weather"></div>
-
-        </div>
-    </div>
-
 </div>
 
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script src="../js/goodweather.min.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.7/semantic.min.js"></script>
+<script src="../js/goodweather.js"></script>
+
 <script>
 
 
-    $('.weatherCurrent').goodweather({bgPic:'body'});
-    $('.weather').goodweather({search: true,forecast:true});
+    $('.my_weather').goodweather({search: true, forecast: '#my_forecast', bgPic: '.my_activator'});
+
+    //    $('.weather').goodweather({search: true, forecast: '#my_forecast', bgPic: '.wrapper'});
 </script>
 </body>
 </html>

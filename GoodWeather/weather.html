@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather layer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.7/semantic.min.css">
+
+    <style>
+        html, body {
+            width   : 100%;
+            height  : 100%;
+            margin  : 0;
+            padding : 0;
+        }
+
+        .containter {
+            width  : 500px;
+            height : 300px;
+            margin : 5% auto;
+        }
+
+        #map-canvas {
+            padding               : 5%;
+
+            text-align            : center;
+            margin-top            : 2%;
+            width                 : 100%;
+            height                : 100%;
+            border                : 1px dashed;
+            box-shadow            : 2px 2px 5px gray;
+            -webkit-border-radius : 5px;
+            -moz-border-radius    : 5px;
+            border-radius         : 5px;
+        }
+
+        .gm-style-iw {
+            text-align : center;
+        }
+    </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js">
+    </script>
+</head>
+<body>
+<div class="containter">
+
+    <div class="ui form">
+        <div class="fields" style="line-height: 35px">
+
+            <div class="field">
+                <div class="ui  input">
+                    <input id="country_input" type="text" name="country" placeholder="Search">
+                    <button class="ui submit button" type="submit" name="sub" value="send">send</button>
+                </div>
+            </div>
+
+            <div class="field"><input type="text" disabled style="width: 50px;border: none"></div>
+
+            <div class="inline fields">
+            <label><i class="fa fa-sun-o"></i> forecast</label>
+            <div class="field">
+                <input class="hidden" id="forecast" tabindex="0" name="forecast" type="checkbox" checked>
+            </div>
+            </div>
+
+        </div>
+    </div>
+
+
+<div id="map-canvas">SEARCH..</div>
+<div class="goodWeather_Forecast">forecast</div>
+
+</div>
+
+<script>
+    var map;
+    var geoJSON;
+    var request;
+    var gettingData = false;
+    var openWeatherMapKey = "10d1d7abaa49b932d8ef3ced41d05c68";
+
+
+    function initialize(lat, lon) {
+
+        var mapOptions = {
+            zoom: 11,
+            center: new google.maps.LatLng(lat, lon)
+        };
+
+        map = new google.maps.Map(document.getElementById('map-canvas'),
+            mapOptions);
+
+
+        // Add interaction listeners to make weather requests
+        google.maps.event.addListener(map, 'idle', checkIfDataRequested);
+        // Sets up and populates the info window with details
+        map.data.addListener('click', function (event) {
+            infowindow.setContent(
+                "<img src=" + event.feature.getProperty("icon") + ">"
+                + "<br /><strong>" + event.feature.getProperty("city") + "</strong>"
+                + "<br />" + event.feature.getProperty("temperature") + "&deg;C"
+                + "<br />" + event.feature.getProperty("weather")
+            );
+            infowindow.setOptions({
+                position: {
+                    lat: event.latLng.lat(),
+                    lng: event.latLng.lng()
+                },
+                pixelOffset: {
+                    width: 0,
+                    height: -15
+                }
+            });
+            infowindow.open(map);
+        });
+    }
+
+
+    var checkIfDataRequested = function () {
+        // Stop extra requests being sent
+        while (gettingData === true) {
+            request.abort();
+            gettingData = false;
+        }
+        getCoords();
+    };
+    // Get the coordinates from the Map bounds
+    var getCoords = function () {
+        var bounds = map.getBounds();
+        var NE = bounds.getNorthEast();
+        var SW = bounds.getSouthWest();
+        getWeather(NE.lat(), NE.lng(), SW.lat(), SW.lng());
+    };
+    // Make the weather request
+    var getWeather = function (northLat, eastLng, southLat, westLng) {
+        gettingData = true;
+        var requestString = "http://api.openweathermap.org/data/2.5/box/city?bbox="
+            + westLng + "," + northLat + "," //left top
+            + eastLng + "," + southLat + "," //right bottom
+            + map.getZoom()
+            + "&cluster=yes&format=json"
+            + "&APPID=" + openWeatherMapKey;
+        request = new XMLHttpRequest();
+        request.onload = proccessResults;
+        request.open("get", requestString, true);
+        request.send();
+    };
+    // Take the JSON results and proccess them
+    var proccessResults = function () {
+        console.log(this);
+        var results = JSON.parse(this.responseText);
+        if (results.list.length > 0) {
+            resetData();
+            for (var i = 0; i < results.list.length; i++) {
+                geoJSON.features.push(jsonToGeoJson(results.list[i]));
+            }
+            drawIcons(geoJSON);
+        }
+    };
+    var infowindow = new google.maps.InfoWindow();
+    // For each result that comes back, convert the data to geoJSON
+    var jsonToGeoJson = function (weatherItem) {
+        var feature = {
+            type: "Feature",
+            properties: {
+                city: weatherItem.name,
+                weather: weatherItem.weather[0].main,
+                temperature: weatherItem.main.temp,
+                min: weatherItem.main.temp_min,
+                max: weatherItem.main.temp_max,
+                humidity: weatherItem.main.humidity,
+                pressure: weatherItem.main.pressure,
+                windSpeed: weatherItem.wind.speed,
+                windDegrees: weatherItem.wind.deg,
+                windGust: weatherItem.wind.gust,
+                icon: "http://openweathermap.org/img/w/"
+                + weatherItem.weather[0].icon + ".png",
+                coordinates: [weatherItem.coord.lon, weatherItem.coord.lat]
+            },
+            geometry: {
+                type: "Point",
+                coordinates: [weatherItem.coord.lon, weatherItem.coord.lat]
+            }
+        };
+        // Set the custom marker icon
+        map.data.setStyle(function (feature) {
+            return {
+                icon: {
+                    url: feature.getProperty('icon'),
+                    anchor: new google.maps.Point(25, 25)
+                }
+            };
+        });
+        // returns object
+        return feature;
+    };
+    // Add the markers to the map
+    var drawIcons = function (weather) {
+        map.data.addGeoJson(geoJSON);
+        // Set the flag to finished
+        gettingData = false;
+    };
+    // Clear data layer and geoJSON
+    var resetData = function () {
+        geoJSON = {
+            type: "FeatureCollection",
+            features: []
+        };
+        map.data.forEach(function (feature) {
+            map.data.remove(feature);
+        });
+    };
+
+    //FORECAST//
+    function forecast(lat, lon) {
+        var foreCast = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&units=metric' +'&appid='+ openWeatherMapKey;
+        var imgSrc = 'http://openweathermap.org/img/w/';
+
+
+        $.get(foreCast, function (fc) {
+            var fcList = fc.list;
+            var goodWeather_Forecast = $('.goodWeather_Forecast');
+
+console.log(fc);
+
+            function fcParseFloat(i) {
+                return parseFloat((i).toFixed(1));
+            }
+
+            var fcDate = {
+                fcDate1: fcList[0].dt_txt,
+                fcDate2: fcList[1].dt_txt,
+                fcDate3: fcList[2].dt_txt
+            };
+            var fcIcon = {
+                fcIcon1: fcList[0].weather[0].icon,
+                fcIcon2: fcList[1].weather[0].icon,
+                fcIcon3: fcList[2].weather[0].icon
+            };
+            var Temp = {
+                temp1: fcParseFloat(fcList[0].main.temp),
+                temp2: fcParseFloat(fcList[1].main.temp),
+                temp3: fcParseFloat(fcList[2].main.temp)
+            };
+
+            var forecastHtml =
+                '<table class="ui table">' +
+                '<thead>' +
+                '<tr>' +
+                    '<td><h3><em>Forecast</em></h3></td>'+
+                '</tr>' +
+                '</thead>' +
+                '<tbody>' +
+                '<tr>' +
+                '<td class="goodWeather_date1"><em>' + fcDate.fcDate1 + '</em></td>' +
+                '<td class="goodWeather_icon1">' +
+                '<img src= ' + imgSrc + fcIcon.fcIcon1 + '.png' + '>' +
+                '</td>' +
+                '<td class="goodWeather_temp1"><em class="forecast_temp1">' + Temp.temp1 + '&deg;C</em></td>' +
+                '</tr>' +
+                '<tr>' +
+                '<td class="goodWeather_date2"><em>' + fcDate.fcDate2 + '</em></td>' +
+                '<td class="goodWeather_icon2">' +
+                '<img src= ' + imgSrc + fcIcon.fcIcon2 + '.png' + '>' + '</td>' +
+                '<td class="goodWeather_temp2"><em class="forecast_temp2">' + Temp.temp2 + '&deg;C</em></td>' +
+                '</tr>' +
+                '<tr>' +
+                '<td class="goodWeather_date3"><em>' + fcDate.fcDate3 + '</em></td>' +
+                '<td class="goodWeather_icon3"><em>' +
+                '<img src= ' + imgSrc + fcIcon.fcIcon3 + '.png' + '>' +
+                '</td>' +
+                '<td class="goodWeather_temp3"><em class="forecast_temp3">' + Temp.temp3 + '&deg;C</em></td>' +
+                '</tr>' +
+                '</tbody>' +
+                '</table>';
+
+
+                goodWeather_Forecast.html(forecastHtml);
+
+        });
+
+    };
+
+
+    $('button').on('click', function (e) {
+//        e.defaultPrevented;
+        var newInput = $('#country_input').val();
+        $.getJSON('http://api.openweathermap.org/data/2.5/weather' + '?q=' + newInput + "&units=metric&appid=" + openWeatherMapKey, function (data) {
+//            console.log(data);
+            initialize(data.coord.lat, data.coord.lon);
+
+            if($('#forecast').attr('checked',true)){
+                forecast(data.coord.lat, data.coord.lon);
+            }
+
+        });
+        google.maps.event.addDomListener(window, 'load', initialize);
+
+    });
+
+</script>
+
+</body>
+</html>
