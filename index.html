@@ -39,13 +39,16 @@
     <style>
         /* NAVIGATION*/
         #my_portfolioCollaps {
-            position     : absolute;
-            text-align   : left;
-            list-style   : none;
-            padding-left : 15%;
-            background: white;
-            border-radius:5px;
-            z-index: 100;
+            position      : absolute;
+            text-align    : left;
+            list-style    : none;
+            padding-left  : 15%;
+            background    : white;
+            border-radius : 5px;
+            z-index       : 100;
+            font-size: 13px;
+            line-height: 20px;
+            font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
         }
 
 
@@ -73,21 +76,21 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a class="page-scroll" href="#about">About</a>
+                    <a class="page-scroll about" href="#about">About</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#services">Skills</a>
+                    <a class="page-scroll skills" href="#services">Skills</a>
                 </li>
                 <li>
                     <a id="my_portfolioButton" class="page-scroll" href="#portfolio">Portfolio</a>
                     <p id="my_portfolioCollaps">
-                        <a class=" page-scroll my_portfolioButtonSub"href="#My_SubCoding">Coding</a>
+                        <a class=" page-scroll my_portfolioButtonSub" href="#My_SubCoding">Coding</a>
                         <a class="page-scroll my_portfolioButtonSub" href="#My_SubWebdesign">Webdesign</a>
                     </p>
 
                 </li>
                 <li>
-                    <a class="page-scroll" href="#contact">Contact</a>
+                    <a class="page-scroll contact" href="#contact">Contact</a>
                 </li>
             </ul>
         </div>
@@ -453,9 +456,11 @@
         $('#my_portfolioButton').mouseover(function () {
             $('#my_portfolioCollaps').show();
         });
+        $('.page-scroll.about,.page-scroll.skills,.page-scroll.contact').hover(function () {
+            $('#my_portfolioCollaps').hide();
+        });
         $('#my_portfolioCollaps').mouseleave(function () {
             $(this).hide();
-
         });
 
 //        $.getJSON('https://teamtreehouse.com/simhub.json').
