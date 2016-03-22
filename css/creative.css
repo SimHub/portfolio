@@ -67,6 +67,8 @@ background: #337ab7;
 
 section {
     padding: 100px 0;
+    border-bottom: 1px solid lightgray;
+
 }
 
 aside {
@@ -80,7 +82,7 @@ aside {
 .navbar-default {
     border-color: rgba(34,34,34,.05);
     font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
-    background-color: #fff;
+    /*background-color: #fff;*/
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
@@ -121,7 +123,10 @@ aside {
 .navbar-default .nav>li.active>a:focus:hover {
     background-color: transparent;
 }
-
+.navbar-default {
+    background: none;
+    border: none;
+}
 /*==== Img ANIMATION======*/
 
 .demo_img{
@@ -137,7 +142,7 @@ aside {
     .navbar-default {
         border-color: rgba(255,255,255,.3);
         /*opacity: 0.5;*/
-        background-color: #f05f40;
+        /*background-color: #f05f40;*/
     }
 
     .navbar-default .navbar-header .navbar-brand {
@@ -161,7 +166,7 @@ aside {
 
     .navbar-default.affix {
         border-color: rgba(34,34,34,.05);
-        background-color: #fff;
+        /*background-color: #fff;*/
     }
 
     .navbar-default.affix .navbar-header .navbar-brand {
@@ -261,7 +266,7 @@ header .header-content .header-content-inner p {
 }
 
 .section-heading {
-    margin-top: 0;
+    margin-top: 1%;
 }
 
 .service-box {
