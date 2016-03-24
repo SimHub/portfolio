@@ -306,25 +306,15 @@
 <script src="js/wow.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="js/creative.js"></script>
 <!--<script src="js/justFlipIt.min.js"></script>-->
 <script src="js/t.min.js"></script>
 <!--<link rel="stylesheet" href="mejs/mediaelementplayer.min.css"/>-->
 <!--<script src="mejs/mediaelement-and-player.min.js"></script>-->
 <!--<script src="js/skills.min.js"></script>-->
-<script src="js/scripts.min.js"></script>
+<script src="js/main.js"></script>
 
 <script>
-    $(function () {
-        var portfolioBox = function (selector, repo) {
-            $(selector).append('<h3>' + repo.name +
-                '</h3><p>' + repo.description + '</p>');
-        };
-        $.get('https://api.github.com/users/SimHub/repos', function (data) {
-            portfolioBox('#loremIpsumTitle', data[6]);
-            portfolioBox('#justFlipit', data[0]);
-        })
-    });
+
 
 </script>
 </body>
