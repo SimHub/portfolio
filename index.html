@@ -1,19 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
     <title>SimHub Portfolio</title>
-
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-
     <!-- Custom Fonts -->
     <link
         href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
@@ -22,22 +17,23 @@
         href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic'
         rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
-
     <!-- Plugin CSS -->
     <link rel="stylesheet" href="css/animate.min.css" type="text/css">
-
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/creative.css" type="text/css">
-
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
     <style>
         /* NAVIGATION*/
+        * {
+            box-sizing : border-box;
+            word-break : break-all
+        }
+
         #my_portfolioCollaps {
             position      : absolute;
             text-align    : left;
@@ -51,13 +47,21 @@
             font-family   : 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
         }
 
+        #loremIpsumTitle, #justFlipit, #phpbase64encoder {
+            position   : absolute;
+            top        : 0;
+            left       : 2%;
+            color      : white;
+            text-align : center;
+        }
 
+        .portfoilioSubBox {
+            width : 300px;
+        }
     </style>
-
 </head>
 
 <body id="page-top">
-
 <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -78,16 +82,8 @@
                 <li>
                     <a class="page-scroll about" href="#about">About</a>
                 </li>
-                <!--<li>-->
-                <!--<a class="page-scroll skills" href="#services">Skills</a>-->
-                <!--</li>-->
                 <li>
                     <a id="my_portfolioButton" class="page-scroll" href="#portfolio">Portfolio</a>
-                    <!--<p id="my_portfolioCollaps">-->
-                    <!--<a class=" page-scroll my_portfolioButtonSub" href="#My_SubCoding">Coding</a>-->
-                    <!--<a class="page-scroll my_portfolioButtonSub" href="#My_SubWebdesign">Webdesign</a>-->
-                    <!--</p>-->
-
                 </li>
                 <li>
                     <a class="page-scroll contact" href="#contact">Contact</a>
@@ -102,22 +98,13 @@
 <header>
     <div class="header-content">
         <div class="header-content-inner">
-
-            <h1>
-                Webdesign & Development
-            </h1>
-            <hr>
-
-            <h2> <!-- t-js text-->
-                <div style="text-align: center" id="t-js-intro"></div>
-            </h2>
-            <a href="#about" class="page-scroll"><i class="fa fa-chevron-down" style="font-size: 60px"></i>
+            <br>
+            <p> <!-- t-js text-->
+            <div style="text-align: center; font-family: 'Open Sans';font-size: 1.1em" id="t-js-intro"></div>
+            </p>
             </a>
         </div>
-
     </div>
-
-
 </header>
 
 <section class="bg-primary" id="about">
@@ -127,8 +114,6 @@
                 <h2 class="section-heading">
                     <a href="https://github.com/SimHub"> <i style="font-size: 2em;color: white"
                                                             class="fa fa-github tech_icon"></i></a>
-
-                    <!--<img src="img/simon_avatar_o.png" alt="" width="150" class="img-circle">-->
                 </h2>
                 <hr class="light">
                 <p class="text-faded">
@@ -143,14 +128,9 @@
                     <br>
                     <i class="file pdf outline icon"></i>
                 </p>
-
-                <a href="#services" class="page-scroll">
-                    <i class="fa fa-chevron-down" style="font-size: 60px"></i>
-                </a>
                 <hr>
-
                 <br><br>
-<h3>Still learning <i class="fa  fa-smile-o"></i></h3>
+                <h3>Still learning <i class="fa  fa-smile-o"></i></h3>
                 <a href="https://teamtreehouse.com/simhub" alt="Teamtreehouse">
                     <img src="img/badges/treehouse.png" width="50" alt="">
                 </a>
@@ -159,96 +139,44 @@
                 </a>
                 <br><br>
                 <div id="badges"></div>
-
             </div>
         </div>
     </div>
 </section>
 
 <section class="no-padding" id="portfolio">
-    <!--<div class="container">-->
-    <!--<div class="row">-->
-    <!--<div class="col-lg-12 text-center">-->
-    <!--<br><br>-->
-    <!--<h2 class="section-heading">PORTFOLIO</h2>-->
-    <!--<hr class="primary">-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--</div>-->
-
-    <!--<br><br>-->
-    <!--CODING-->
-    <!--<h2 id="My_SubCoding" class="section-heading">CODING</h2>-->
-    <!--<br>-->
     <div class="container-fluid">
         <div class="row no-gutter">
 
-            <!-- GITHUB-->
-            <div class="col-lg-4 col-sm-6">
-                <a href="https://github.com/SimHub"
-                   class="portfolio-box">
-                    <img src="img/portfolio/gitHub.jpg" class="img-responsive" alt="github">
-
-                    <div class="portfolio-box-caption">
-                        <div class="portfolio-box-caption-content">
-                            <div class="project-category text-faded ">
-                            </div>
-                            <div class="project-name" id="my_gitHub_repos">
-
-
-                            </div>
-
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-
             <!--JUSTFLIPIT-->
             <div class="col-lg-4 col-sm-6">
-                <a href="http://simhub.github.io/justFlipIt/" class="img-responsive portfolio-box ">
-                    <img src="img/portfolio/justflipit.jpg" class="img-responsive" alt="pureReact">
-
-                    <!--<div class="portfolio_box nodechat">-->
-                    <!--<h2>NodeJS Chat</h2>-->
-                    <!--</div>-->
-
+                <a href="https://github.com/SimHub/justFlipIt" class="portfolio-box">
+                    <img src="img/portfolio/green.jpg" class="img-responsive" alt="justflipit">
+                    <div id="justFlipit"></div>
                     <div class="portfolio-box-caption">
                         <div class="portfolio-box-caption-content">
-                            <div class="project-category text-faded">
-                                <hr>
-                                justFlipIt is a lightweight jQuery plugin
-                                that allows you to implement CSS3 based flip animations on any DOM elements. <br>
-                                <br>
-                                Documentation && Live demo: http://simhub.github.io/justFlipIt/
-                            </div>
                             <div class="project-name">
-
+                                <br>
+                                <iframe
+                                    src="https://ghbtns.com/github-btn.html?user=SimHub&repo=justFlipIt&type=fork&count=true"
+                                    frameborder="0" scrolling="0" width="80px" height="20px"></iframe>
                             </div>
-                            <i class="fa fa-github tech_icon"></i>
                         </div>
                     </div>
                 </a>
             </div>
-
 
             <!--PUREREACT-->
             <div class="col-lg-4 col-sm-6">
                 <a href="http://simhub.github.io/pureReact.js/" class="img-responsive portfolio-box ">
                     <img src="img/portfolio/pureReact.jpg" class="img-responsive" alt="pureReact">
 
-                    <!--<div class="portfolio_box nodechat">-->
-                    <!--<h2>NodeJS Chat</h2>-->
-                    <!--</div>-->
-
                     <div class="portfolio-box-caption">
                         <div class="portfolio-box-caption-content">
                             <div class="project-category text-faded">
-                                <hr>
-                                Bring your website to life! <br>
-                                Easy Two-Way Data Binding in <br>[ pure Javascript ]<br>
                                 <br>
-                                Documentation & Examples: simhub.github.io/pureReact.js/
+                                Bring your website to life! <br>
+                                Easy Data Binding in <br>[ <i class="fa fa-tint"></i> pure Javascript ]<br>
                             </div>
                             <div class="project-name">
 
@@ -259,15 +187,10 @@
                 </a>
             </div>
 
-
             <!--NODEJSCHAT-->
             <div class="col-lg-4 col-sm-6">
                 <a href="http://nodejschat-simgoat.rhcloud.com/" class="img-responsive portfolio-box ">
                     <img src="img/portfolio/nodechat.jpg" class="img-responsive" alt="">
-
-                    <!--<div class="portfolio_box nodechat">-->
-                    <!--<h2>NodeJS Chat</h2>-->
-                    <!--</div>-->
 
                     <div class="portfolio-box-caption">
                         <div class="portfolio-box-caption-content">
@@ -287,21 +210,44 @@
             <div class="col-lg-4 col-sm-6">
                 <a href="http://phpbase64encoder-simgoat.rhcloud.com/" class="portfolio-box">
                     <img src="img/portfolio/base64encoder.jpg" class="img-responsive" alt="">
+                    <div id="phpbase64encoder"></div>
 
                     <div class="portfolio-box-caption">
                         <div class="portfolio-box-caption-content">
-                            <br><br><br>
-
-                            <div class="project-category text-faded">
-                                PHP Base64 Image Encoder Template.
-                                Konvertiere dein Bild in ein base64 string Format für CSS, XHTML, XML ... Projekte
-                            </div>
                             <div class="project-name">
-                                Tech <br>
-                                PHP, jQuery, Css, Html5
-                            </div>
-                            <i class="fa fa-github tech_icon"></i>
+                                <br>
+                                <p>Php, jquery</p>
 
+                                <iframe
+                                    src="https://ghbtns.com/github-btn.html?user=SimHub&repo=phpbase64encoder&type=star&count=true&size=medium"
+                                    frameborder="0" scrolling="0" width="80px" height="20px"></iframe>
+                            </div>
+
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Simple lorem ipsum gernerator-->
+            <div class="col-lg-4 col-sm-6">
+                <a href="https://github.com/SimHub/Simple-lorem-ipsum-generator" class="portfolio-box">
+                    <img src="img/portfolio/green.jpg" class="img-responsive" alt="">
+                    <div id="loremIpsumTitle"></div>
+
+                    <div class="portfolio-box-caption">
+                        <div class="portfolio-box-caption-content">
+                            <div class="project-name">
+                                <br>
+                                <iframe
+                                    src="https://ghbtns.com/github-btn.html?user=SimHub&repo=Simple-lorem-ipsum-generator&type=star&count=true&size=medium"
+                                    frameborder="0" scrolling="0" width="80px" height="20px"></iframe>
+                                <iframe
+                                    src="https://ghbtns.com/github-btn.html?user=SimHub&repo=Simple-lorem-ipsum-generator&type=fork&count=true"
+                                    frameborder="0" scrolling="0" width="80px" height="20px"></iframe>
+                                <iframe
+                                    src="https://ghbtns.com/github-btn.html?user=SimHub&repo=Simple-lorem-ipsum-generator&type=watch&count=true&v=2"
+                                    frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
+                            </div>
                         </div>
                     </div>
                 </a>
@@ -324,49 +270,10 @@
                     </div>
                 </a>
             </div>
+
         </div>
     </div>
     <br><br>
-    <!--<hr>-->
-    <br><br>
-
-    <!--&lt;!&ndash;WEBDESIGN&ndash;&gt;-->
-    <!--<h2 id="My_SubWebdesign" class="section-heading">WEBDESIGN</h2>-->
-    <!--<br>-->
-    <!--<div class="container-fluid">-->
-    <!--<div class="row no-gutter">-->
-
-    <!--&lt;!&ndash;REALNUTRITION&ndash;&gt;-->
-    <!--&lt;!&ndash;<div class="col-lg-4 col-sm-6">&ndash;&gt;-->
-    <!--<span href="#" class="portfolio-box">-->
-    <!--<img src="img/portfolio/realnutrition.jpg" class="img-responsive" alt="">-->
-
-
-    <!--&lt;!&ndash;<div class="portfolio_box realnutrition"><h2>Realnutrition</h2></div>&ndash;&gt;-->
-    <!--<div class="portfolio-box-caption">-->
-    <!--<div class="portfolio-box-caption-content">-->
-    <!--&lt;!&ndash;<h2>REALNUTRITION</h2>&ndash;&gt;-->
-    <!--&lt;!&ndash;<div class="project-category text-faded">&ndash;&gt;-->
-    <!--&lt;!&ndash;Tech&ndash;&gt;-->
-    <!--&lt;!&ndash;</div>&ndash;&gt;-->
-    <!--<div class="project-name">-->
-    <!--&lt;!&ndash;OOP Php, Hmtl5, css3, ajax, jQuery, Mysql&ndash;&gt;-->
-    <!--<video class="img-responsive" src="video/realnutrition_frontend.mp4" type="video/mp4"-->
-    <!--id="realnutrition_iphone" width="100%" height="100%" controls="controls"-->
-    <!--poster="img/portfolio/realnutrition.jpg">-->
-    <!--&lt;!&ndash;                    <source src="video/nodejs/simple_node_chat.ogv" type="video/ogv">&ndash;&gt;-->
-    <!--</video>-->
-    <!--</div>-->
-
-    <!--</div>-->
-    <!--</div>-->
-    <!--</span>-->
-    <!--&lt;!&ndash;</div>&ndash;&gt;-->
-
-    <!--</div>-->
-    <!--</div>-->
-
-
 </section>
 
 <br><br>
@@ -400,51 +307,23 @@
 
 <!-- Custom Theme JavaScript -->
 <script src="js/creative.js"></script>
-
-<script src="js/justFlipIt.min.js"></script>
+<!--<script src="js/justFlipIt.min.js"></script>-->
 <script src="js/t.min.js"></script>
 <!--<link rel="stylesheet" href="mejs/mediaelementplayer.min.css"/>-->
 <!--<script src="mejs/mediaelement-and-player.min.js"></script>-->
-<script src="js/skills.min.js"></script>
+<!--<script src="js/skills.min.js"></script>-->
 <script src="js/scripts.min.js"></script>
-
 
 <script>
     $(function () {
-        //NAV///
-        $('#my_portfolioCollaps').hide();
-        $('#my_portfolioButton').mouseover(function () {
-            $('#my_portfolioCollaps').show();
-        });
-        $('.page-scroll.about,.page-scroll.skills,.page-scroll.contact').hover(function () {
-            $('#my_portfolioCollaps').hide();
-        });
-        $('#my_portfolioCollaps').mouseleave(function () {
-            $(this).hide();
-        });
-
+        var portfolioBox = function (selector, repo) {
+            $(selector).append('<h3>' + repo.name +
+                '</h3><p>' + repo.description + '</p>');
+        };
         $.get('https://api.github.com/users/SimHub/repos', function (data) {
-            console.log(data[0].description);
-            $('#my_gitHub_repos').append(
-                '<div class="portfolio-box-caption">' +
-                '<div class="portfolio-box-caption-content">' +
-                '<div class="project-category text-faded">' +
-                '<h3>Repos</h3><br><br>' +
-                '<p>' + data[5].name + '<br>'
-                + data[0].name + '<br>'
-                + data[3].name + '<br>' +
-                '<hr>' +
-                'see more...' +
-                '</p>' +
-                '</div>' +
-                '<div class="project-name">' +
-                '</div>' +
-                '</div>' +
-                '</div>'
-            )
-            ;
+            portfolioBox('#loremIpsumTitle', data[6]);
+            portfolioBox('#justFlipit', data[0]);
         })
-
     });
 
 </script>
