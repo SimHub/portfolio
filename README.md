@@ -1,1 +1,1 @@
-<a href="http://simhub.github.io/portfolio/">Portfolio ✔︎/a>
+<a href="http://simhub.github.io/portfolio/">Portfolio ✔︎</a>
